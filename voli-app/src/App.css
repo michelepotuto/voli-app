@@ -1,38 +1,241 @@
-.App {
-  text-align: center;
+
+
+.container1 {
+  width: 100%;
+
+
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+.card {
+position: relative;
+display: flex;
+align-items: center;
+
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border: 1px solid rgba(0, 0, 0, 0.125);
+border-radius: 0.25rem;
+
+margin: 10px;
+
+
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-body {
+margin-left: -300px;
+margin-top: 30px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-text{
+border-radius: 6px;
+background-color:rgba(248, 248, 248, 0.789);
+}
+
+.container-card {
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 450px;
+
+}
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-link {
+  display: fixed;
+  color: black!important;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.711)
+}
+.nav-cart {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+  border-radius: 6px;
+  background-color:rgba(171, 18, 89, 0.789);
+}
+
+.rimuovi-cart {
+
+box-shadow: 3px 3px 0px 0 rgba(0, 0, 0, 0.8), 0 6px 120px 0 rgba(0, 0, 0, 0.99);
+border-radius: 3px;
+background-color:rgba(171, 18, 89, 0.605);
+}
+
+.nav-link:hover {
+  color: white!important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 6px;
+  background-color: rgb(64, 64, 71);
+}
+
+.nav-item {
+    display: block;
+padding: 0.5rem 0.5rem;
+color: #eaeaea;
+text-decoration: none;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+
+
+.title {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+
+  background-color:rgba(36, 207, 207, 0.626);
+}
+
+.titleConcert {
+display: flex;
+justify-content: center;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
+min-width: 100%;
+background-color:rgba(36, 207, 207, 0.626);
+}
+
+
+/* FORM FILTER CSS */
+
+form.menu-form {
+  padding: 1em;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+
+.form-block label {
+  font-size: 80%;
+  margin-right: 10px;
+}
+
+.form-row button {
+  background: #002344;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  margin-left:10px;
+}
+
+/* fine FORM FILTER CSS */
+
+/* LOGIN CSS */
+
+Login {
+  font-family: sans-serif;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #f8f9fd;
+
 }
 
-.App-link {
-  color: #61dafb;
+.login_container {
+  display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="text"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  max-width: 200px;
 }
+
+.button-container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: #01d28e;
+  border: 1px solid #01d28e;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover {
+  background: #6cf0c2;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+align-items: center;
+  gap: 8px;
+  margin: 10px;
+}
+
+
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  justify-content: center;
+  /* margin-left: 250px;
+  margin-right: 250px; */
+}
+
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+}
+
+
+
+
+/* FINE LOGIN CSS */
