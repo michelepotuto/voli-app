@@ -24,7 +24,7 @@ const FlightsCard = (props) => {
         "[" + sessionStorage.getItem(counterName.CART) + "]"
       );
       const index = search.findIndex((i) => {
-        return i.id === ticket.id;
+        return i.id === id;
       });
 
       if (index !== -1) {

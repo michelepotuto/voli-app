@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const ctx = useContext(AuthContext);
+  const count = useSelector((store) => store.count);
   // const count = useSelector((store) => store.count);
 
   return (
@@ -44,7 +45,7 @@ const Navbar = () => {
             </Nav.Item>
             <Nav.Item>
               <Nav.Link as={Link} to="/cart" className="nav-cart">
-                CARRELLO {/* ({count}) */}
+                CARRELLO ({count})
               </Nav.Link>
             </Nav.Item>
           </Nav>
