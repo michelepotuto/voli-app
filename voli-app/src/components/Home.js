@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import useFirebase from "../logic/use-firebase";
 import FilterForm from "../logic/FilterForm";
 import Flights from "../components/pages/Flights";
+import { useDispatch } from "react-redux";
+import { counterActions } from "../logic/counter-store";
 
 const stringComparer = (s1, s2) => s1.toLowerCase().includes(s2.toLowerCase());
 
@@ -13,6 +15,9 @@ const Home = () => {
   const { readFirebase, isLoading } = useFirebase();
   const [showTickets, setShowTickets] = useState(false);
   const [filterMenu, setFilterMenu] = useState([]);
+  const dispatch = useDispatch();
+
+  dispatch({ type: counterActions.START });
 
   useEffect(() => {
     updateProductsFetch();
@@ -34,7 +39,6 @@ const Home = () => {
     setDbFlights(risposta);
   };
 
-
   const filterHandler = (filterDeparture, filterArrival, filterDate) => {
     setFilterMenu(
       dbFlights.filter(
@@ -43,7 +47,6 @@ const Home = () => {
           (!filterArrival || stringComparer(m.arrival, filterArrival)) &&
           (!filterDate || stringComparer(m.date, filterDate))
       )
-      
     );
     console.log();
     setShowTickets(true);

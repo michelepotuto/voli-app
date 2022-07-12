@@ -5,7 +5,6 @@ import { counterActions, counterName } from "../../logic/counter-store";
 
 const FlightsCard = (props) => {
   const { id, departure, arrival, date, time, price, quantity } = props;
-
   const dispatch = useDispatch();
 
   const ticket = { ...props };
@@ -19,12 +18,14 @@ const FlightsCard = (props) => {
     ) {
       ticket.cartQuantity = 1;
       sessionStorage.setItem(counterName.CART, JSON.stringify(props));
+      const prev = parseInt(sessionStorage.getItem(counterName.COUNT)) + 1;
+      sessionStorage.setItem(counterName.COUNT, prev);
     } else {
       const search = JSON.parse(
         "[" + sessionStorage.getItem(counterName.CART) + "]"
       );
       const index = search.findIndex((i) => {
-        return i.id === id;
+        return i.id === ticket.id;
       });
 
       if (index !== -1) {

@@ -55,7 +55,9 @@ const counterReducer = (
 
     return {
       ...state,
-      count: parseInt(sessionStorage.getItem(counterName.COUNT)),
+      count: (state.count = parseInt(
+        sessionStorage.getItem(counterName.COUNT)
+      )),
       total: sessionStorage.getItem(counterName.TOTAL),
     };
   }

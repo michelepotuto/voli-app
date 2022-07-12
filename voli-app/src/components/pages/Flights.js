@@ -18,7 +18,7 @@ const Flights = () => {
     //put the answer in an array and save it in the state List
     for (const p in answer) {
       risposta.push({
-        key: answer[p].id,
+        id: p,
         departure: answer[p].departure,
         arrival: answer[p].arrival,
         date: answer[p].date,
@@ -35,6 +35,7 @@ const Flights = () => {
       {dbFlights.map((ticketsItem, key) => (
         <FlightsCard
           key={key}
+          id={ticketsItem.id}
           departure={ticketsItem.departure}
           arrival={ticketsItem.arrival}
           date={ticketsItem.date}

@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../logic/auth-context";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { counterActions } from "../logic/counter-store";
 
 const Navbar = () => {
   const ctx = useContext(AuthContext);
   const count = useSelector((store) => store.count);
+
+  const dispatch = useDispatch();
   // const count = useSelector((store) => store.count);
+
+  useEffect(() => {dispatch({ type: counterActions.UPDATE })}, []);
 
   return (
     <div>

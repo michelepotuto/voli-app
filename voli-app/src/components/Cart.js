@@ -10,7 +10,6 @@ const Cart = (props) => {
     "[" + sessionStorage.getItem(counterName.CART) + "]"
   );
 
-  sessionStorage.setItem(counterName.COUNT, 0);
   const count = useSelector((store) => store.count);
   const total = useSelector((store) => store.total);
   const dispatch = useDispatch();
