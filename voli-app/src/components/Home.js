@@ -24,6 +24,7 @@ const Home = () => {
     //put the answer in an array and save it in the state List
     for (const p in answer) {
       risposta.push({
+        id: p,
         departure: answer[p].departure,
         arrival: answer[p].arrival,
         date: answer[p].date,
@@ -33,14 +34,13 @@ const Home = () => {
     setDbFlights(risposta);
   };
 
-  console.log(dbFlights);
 
-  const filterHandler = (filterDeparture, filterArrivals, filterDate) => {
+  const filterHandler = (filterDeparture, filterArrival, filterDate) => {
     setFilterMenu(
       dbFlights.filter(
         (m) =>
           (!filterDeparture || stringComparer(m.departure, filterDeparture)) &&
-          (!filterArrivals || stringComparer(m.arrival, filterArrivals)) &&
+          (!filterArrival || stringComparer(m.arrival, filterArrival)) &&
           (!filterDate || stringComparer(m.date, filterDate))
       )
       

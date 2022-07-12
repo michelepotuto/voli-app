@@ -2,8 +2,10 @@
 
 .container1 {
   width: 100%;
+  background-image: url("./assets/navbar.jpg");
 
-
+  background-repeat: no-repeat;
+  background-position: center;
   
 }
 
@@ -69,14 +71,14 @@ body {
 .nav-cart {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.99);
   border-radius: 6px;
-  background-color:rgba(171, 18, 89, 0.789);
+  background-color:rgba(193, 152, 99, 0.789);
 }
 
 .rimuovi-cart {
 
 box-shadow: 3px 3px 0px 0 rgba(0, 0, 0, 0.8), 0 6px 120px 0 rgba(0, 0, 0, 0.99);
 border-radius: 3px;
-background-color:rgba(171, 18, 89, 0.605);
+background-color:rgba(193, 152, 99, 0.789);
 }
 
 .nav-link:hover {

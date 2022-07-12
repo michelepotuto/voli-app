@@ -5,16 +5,20 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthContextProvider } from "./logic/auth-context";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import counterStore from "./logic/counter-store";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
-      <AuthContextProvider>
-        <App />
-      </AuthContextProvider>
-    </React.StrictMode>
+    <AuthContextProvider>
+      <Provider store={counterStore}>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </Provider>
+    </AuthContextProvider>
   </BrowserRouter>
 );
 
