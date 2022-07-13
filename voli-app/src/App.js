@@ -9,6 +9,7 @@ import Cart from "./components/Cart";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Nav } from "react-bootstrap";
+import PropsCart from "./logic/PropsCart";
 
 function App() {
   const navigate = useNavigate();
@@ -103,7 +104,7 @@ function App() {
           <Navbar></Navbar>
           <Routes>
             <Route path="/*" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<PropsCart />} />
             <Route path="*" element={<App />} />
           </Routes>
         </div>

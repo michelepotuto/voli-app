@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { counterName } from "./counter-store";
 
 const storageKey = "logged-user";
 const AuthContext = React.createContext({
@@ -29,6 +30,9 @@ export const AuthContextProvider = (props) => {
     setLoggedUser("");
 
     sessionStorage.removeItem(storageKey);
+    sessionStorage.removeItem(counterName.COUNT);
+    sessionStorage.removeItem(counterName.CART);
+    sessionStorage.removeItem(counterName.TOTAL);
   };
 
   useEffect(() => {
@@ -53,5 +57,4 @@ export const AuthContextProvider = (props) => {
       {props.children}
     </AuthContext.Provider>
   );
-
 };

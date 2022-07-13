@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux/es/exports";
 import { counterActions, counterName } from "../../logic/counter-store";
 
 const FlightsCard = (props) => {
-  const { id, departure, arrival, date, time, price, quantity } = props;
+  const { id, departure, arrival, date, time, price, quantity, cartQuantity } =
+    props;
   const dispatch = useDispatch();
 
   const ticket = { ...props };
@@ -18,8 +19,8 @@ const FlightsCard = (props) => {
     ) {
       ticket.cartQuantity = 1;
       sessionStorage.setItem(counterName.CART, JSON.stringify(props));
-      const prev = parseInt(sessionStorage.getItem(counterName.COUNT)) + 1;
-      sessionStorage.setItem(counterName.COUNT, prev);
+      // const prev = parseInt(sessionStorage.getItem(counterName.COUNT)) + 1;
+      // sessionStorage.setItem(counterName.COUNT, prev);
     } else {
       const search = JSON.parse(
         "[" + sessionStorage.getItem(counterName.CART) + "]"

@@ -6,12 +6,14 @@ import { useEffect } from "react";
 import { counterActions, counterName } from "../logic/counter-store";
 
 const Cart = (props) => {
+  const { id, cartQuantity } = props;
+
   const search = JSON.parse(
     "[" + sessionStorage.getItem(counterName.CART) + "]"
   );
 
   const count = useSelector((store) => store.count);
-  const total = useSelector((store) => store.total);
+ 
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,18 +21,9 @@ const Cart = (props) => {
     dispatch({ type: counterActions.UPDATE });
   }, []);
 
-  const emptyCart = () => {
-    //remove all the item in the cart and set 0 to the count
-    sessionStorage.setItem(counterName.COUNT, 0);
-    sessionStorage.removeItem(counterName.CART);
-    dispatch({ type: counterActions.UPDATE }); //refresh the cart
-    console.log("reset cart");
-  };
+
 
   const removeFromCart = () => {
-    const { id, cartQuantity } = props;
-    const ticket = { ...props };
-
     const newCount = parseInt(sessionStorage.getItem(counterName.COUNT));
 
     if (newCount === 0) {
@@ -46,6 +39,8 @@ const Cart = (props) => {
     const index = search.findIndex(function (item) {
       return item.id === id;
     });
+    console.log(index);
+
     if (search[index].cartQuantity > 1) {
       search[index].cartQuantity--;
       sessionStorage.setItem(
@@ -54,6 +49,7 @@ const Cart = (props) => {
       );
     } else {
       let newCart = search.filter((s) => s.id !== id);
+      console.log(newCart);
       sessionStorage.setItem(
         counterName.CART,
         JSON.stringify(newCart).replace("[", "").replace("]", "")
@@ -63,7 +59,7 @@ const Cart = (props) => {
     let count = 0;
     JSON.parse("[" + sessionStorage.getItem(counterName.CART) + "]").map(
       (props) => {
-        count += props.price * props.cartQuantity;
+        count += props.price * cartQuantity;
       }
     );
     sessionStorage.setItem(counterName.TOTAL, count);
@@ -73,53 +69,30 @@ const Cart = (props) => {
 
   return (
     <>
-      {count === 0 ? (
+      
+   
         <div>
-          <h1 className="text-center">Empty cart</h1>
-          <div className="row align-items-center">
-            <div className="col">
-              <h2 className="text-center">
-                <button className="inizia_spesa border border-1" to="/prodotti">
-                  <Link to="/home">Prenota un biglietto</Link>
-                </button>
-              </h2>
-            </div>
+          <div>
+            <Card className="container-card text-center">
+              <Card.Body>
+                <Card.Title>{props.departure}</Card.Title>
+                <Card.Text className="card-text">{props.arrival}</Card.Text>
+                <Card.Text>
+                  Data: {props.data}
+                  <br></br>
+                  Price: {props.price}$
+                </Card.Text>
+                <Card.Footer className="text-muted">{props.id}</Card.Footer>
+              </Card.Body>
+
+              <button className="rimuovi-cart" onClick={removeFromCart}>
+                Rimuovi
+              </button>
+            </Card>
+            
           </div>
         </div>
-      ) : (
-        <div>
-          {search.map((p) => {
-            return (
-              <Card className="container-card text-center">
-                <Card.Body>
-                  <Card.Title>{p.departure}</Card.Title>
-                  <Card.Text className="card-text">{p.arrival}</Card.Text>
-                  <Card.Text>
-                    Data: {p.data}
-                    <br></br>
-                    Price: {p.price}$
-                  </Card.Text>
-                  <Card.Footer className="text-muted">{p.id}</Card.Footer>
-                </Card.Body>
-
-                <button className="rimuovi-cart" onClick={removeFromCart}>
-                  Rimuovi
-                </button>
-              </Card>
-            );
-          })}
-
-          <div className="container_emptypay">
-            <p className="m-4">TOTALE: {total}€</p>
-            <p type="button" className="btn btn-info m-3" onClick={emptyCart}>
-              SVUOTA CARRELLO
-            </p>
-            <p type="button" className="btn btn-info m-3">
-              PAGAMENTO
-            </p>
-          </div>
-        </div>
-      )}
+      
     </>
   );
 };
